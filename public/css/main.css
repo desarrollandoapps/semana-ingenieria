@@ -54,11 +54,18 @@ nav .nav-link {
     max-width: 50%;
 }
 
-#cuenta {
+.cuenta {
     padding-top: 3rem;
     font-size: 4rem;
-    color: rgb(189, 189, 189);
+    color: #ff8a00;
     letter-spacing: 3px;
+}
+
+.titulo-cuenta {
+    font-size: 1rem !important;
+    color: #ff8a00;
+    letter-spacing: 3px;
+    line-height: 0;
 }
 
 .fw-titulo-1 {
@@ -70,4 +77,20 @@ nav .nav-link {
 #programacion .btn-outline-info {
     /* color: #00acc9 !important; */
     font-size: 5rem !important;
+}
+
+.bg-azul-claro {
+    background-color: #00acc9;
+}
+
+.bg-azul-oscuro {
+    background-color: rgb(32, 41, 69);
+}
+
+.footer-heading {
+    color: rgb(0, 172, 201);
+}
+
+.logo-da {
+    width: 150px
 }
