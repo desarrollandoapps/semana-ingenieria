@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventoController;
+use App\Http\Controllers\ConferencistaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('welcome');
 
-Route::get('/conferencista', function () {
-    return view('conferencista');
-})->name('conferencista');
+Route::get('/', [EventoController::class, 'index'])->name('welcome');
+Route::get('/inscripcion/{evento}', [EventoController::class, 'inscripcion'])->name('inscripcion');
+Route::get('/conferencista/{id}', [ConferencistaController::class, 'show'])->name('verConferencista');

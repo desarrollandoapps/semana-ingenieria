@@ -19,7 +19,7 @@ class CreateConferencistasTable extends Migration
             $table->string( 'nombre' );
             $table->string( 'pais' );
             $table->string( 'correo' );
-            $table->string( 'cv' );
+            $table->text( 'cv' );
             $table->string( 'foto' );
 
             $table->timestamps();

@@ -44,9 +44,10 @@ class ConferencistaController extends Controller
      * @param  \App\Models\Conferencista  $conferencista
      * @return \Illuminate\Http\Response
      */
-    public function show(Conferencista $conferencista)
+    public function show($id)
     {
-        //
+        $conferencista = Conferencista::findOrFail($id);
+        return view('conferencista', compact('conferencista'));
     }
 
     /**
