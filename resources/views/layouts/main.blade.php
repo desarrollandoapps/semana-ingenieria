@@ -45,6 +45,23 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="mailto:">Contacto</a>
                             </li>
+                            @guest
+                            <li class="ms-5 nav-item">
+                                <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i></a>
+                            </li>
+                            @else
+                            <li class="ms-5 nav-item">
+                                <a class="nav-link" href="{{ route('conferencista.index') }}">Gestionar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salir">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+                            @endguest
                         </ul>
                     </div>
                 </div>
@@ -138,6 +155,13 @@
             document.getElementById("demo").innerHTML = "EXPIRED";
           }
         }, 1000);
+    </script>
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+
     </script>
 
     @yield('scripts')

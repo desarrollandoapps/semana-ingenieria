@@ -15,11 +15,21 @@
 }
 
 nav .nav-link {
-    font-size: 2rem !important;
+    font-size: 1.5rem !important;
     color: #FFF !important;
 }
 .nav-link:hover {
     text-decoration:underline;
+}
+
+#negro {
+    font-size: 1rem !important;
+    color: #212529 !important;
+}
+#negro:hover {
+    color: #1a1e21;
+    background-color: #e9ecef;
+    text-decoration: none;
 }
 
 #siteIcon {
