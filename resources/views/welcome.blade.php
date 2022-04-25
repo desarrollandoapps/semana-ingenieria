@@ -62,7 +62,7 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
@@ -77,7 +77,7 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
@@ -92,7 +92,7 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
@@ -107,7 +107,7 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
@@ -135,7 +135,7 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
@@ -150,7 +150,7 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
@@ -165,7 +165,7 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
@@ -180,7 +180,7 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>

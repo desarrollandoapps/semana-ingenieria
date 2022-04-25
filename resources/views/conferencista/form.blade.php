@@ -24,7 +24,7 @@
     <br>
 
     <label for="cv">Curriculum Vitae: </label>
-    <input type="text" class="form-control" name="cv" id="cv" value="{{ isset( $conferencista->cv ) ? $conferencista->cv : old('cv') }}">
+    <textarea class="form-control" name="cv" id="cv">{{ isset( $conferencista->cv ) ? $conferencista->cv : old('cv') }}</textarea>
     <br>
 
     <label for="foto">Foto: </label>

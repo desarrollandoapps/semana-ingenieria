@@ -24,8 +24,6 @@ Route::get('/', [EventoController::class, 'index'])->name('welcome');
 Route::get('/inscripcion/{evento}', [InscripcionController::class, 'inscripcion'])->name('inscripcion');
 Route::post('/inscripcion', [InscripcionController::class, 'store'])->name('inscripcion.store');
 
-Route::get('/conferencista/{id}', [ConferencistaController::class, 'show'])->name('verConferencista');
 Route::get('/inscripcion/{evento}', [EventoController::class, 'inscripcion'])->name('inscripcion');
-//Route::get('/conferencista/{id}', [ConferencistaController::class, 'show'])->name('verConferencista');
 
 Route::resource('conferencista', ConferencistaController::class);
