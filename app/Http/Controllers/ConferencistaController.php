@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Conferencista;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ConferencistaController extends Controller
 {
@@ -15,6 +16,8 @@ class ConferencistaController extends Controller
     public function index()
     {
         //
+        $datos['conferencistas'] = Conferencista::paginate(5);
+        return view('conferencista.index', $datos );        
     }
 
     /**
@@ -25,6 +28,7 @@ class ConferencistaController extends Controller
     public function create()
     {
         //
+        return view('conferencista.create');
     }
 
     /**
@@ -36,6 +40,32 @@ class ConferencistaController extends Controller
     public function store(Request $request)
     {
         //
+
+        $campos = [
+            'nombre' => 'required|string|max:100', 
+            'pais' => 'required|string|max:100', 
+            'correo' => 'required|email|max:100', 
+            'cv' => 'required|string', 
+            'foto' => 'required|max:10000|mimes:jpeg,png,jpg' 
+        ];
+
+        $mensajes = [
+            'required' => 'El :attribute es requerido', 
+            'foto.required' => 'La foto es requerida' 
+        ];
+
+        $this->validate( $request, $campos, $mensajes );
+
+        $datosConferencista = request()->except( '_token' );
+
+        if( $request->hasFile('foto') ) {
+            $datosConferencista['foto'] = $request->file('foto')->store( 'uploads', 'public' );
+        }
+
+        Conferencista::insert( $datosConferencista );
+
+        //return response()->json( $datosConferencista );
+        return redirect( 'conferencista' )->with( 'mensaje', 'Conferencista agregado con éxito');
     }
 
     /**
@@ -47,7 +77,7 @@ class ConferencistaController extends Controller
     public function show($id)
     {
         $conferencista = Conferencista::findOrFail($id);
-        return view('conferencista', compact('conferencista'));
+        return view('conferencista.show', compact('conferencista'));
     }
 
     /**
@@ -56,9 +86,11 @@ class ConferencistaController extends Controller
      * @param  \App\Models\Conferencista  $conferencista
      * @return \Illuminate\Http\Response
      */
-    public function edit(Conferencista $conferencista)
+    public function edit( $id )
     {
         //
+        $conferencista = Conferencista::findOrFail( $id );
+        return view('conferencista.edit', compact( 'conferencista' ));
     }
 
     /**
@@ -68,9 +100,40 @@ class ConferencistaController extends Controller
      * @param  \App\Models\Conferencista  $conferencista
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Conferencista $conferencista)
+    public function update(Request $request, $id )
     {
-        //
+        // 
+        $campos = [
+            'nombre' => 'required|string|max:100', 
+            'pais' => 'required|string|max:100', 
+            'correo' => 'required|email|max:100', 
+            'cv' => 'required|string' 
+        ];
+
+        $mensajes = [
+            'required' => 'El :attribute es requerido' 
+        ];
+
+        $this->validate( $request, $campos, $mensajes );
+
+        if( $request->hasFile( 'foto' ) ) 
+        {
+            $campos = [ 'foto' => 'required|max:10000|mimes:jpeg,png,jpg' ];
+            $mensajes = [
+                'foto.required' => 'La foto es requerida' 
+            ];    
+        }
+
+        $datosConferencista = request()->except( ['_token', '_method'] );
+
+        if( $request->hasFile('foto') ) {
+                $conferencista = Conferencista::findOrFail( $id );
+                Storage::delete( 'public/' . $conferencista->foto );
+                $datosConferencista['foto'] = $request->file('foto')->store('uploads', 'public');
+        }
+
+        Conferencista::where( 'id', "=", $id )->update( $datosConferencista );
+        return redirect('conferencista' )->with( 'mensaje', 'Conferencista modificado con éxito');
     }
 
     /**
@@ -79,8 +142,15 @@ class ConferencistaController extends Controller
      * @param  \App\Models\Conferencista  $conferencista
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Conferencista $conferencista)
+    public function destroy($id)
     {
         //
+        $conferencista = Conferencista::findOrFail( $id );
+        if( Storage::delete( 'public/' . $conferencista->foto ) ) 
+        {
+            Conferencista::destroy( $id );
+        }
+
+        return redirect('conferencista')->with( 'mensaje', 'Conferencista eliminado con éxito');;
     }
 }

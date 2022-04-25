@@ -21,4 +21,6 @@ use App\Http\Controllers\ConferencistaController;
 
 Route::get('/', [EventoController::class, 'index'])->name('welcome');
 Route::get('/inscripcion/{evento}', [EventoController::class, 'inscripcion'])->name('inscripcion');
-Route::get('/conferencista/{id}', [ConferencistaController::class, 'show'])->name('verConferencista');
+//Route::get('/conferencista/{id}', [ConferencistaController::class, 'show'])->name('verConferencista');
+
+Route::resource('conferencista', ConferencistaController::class);
