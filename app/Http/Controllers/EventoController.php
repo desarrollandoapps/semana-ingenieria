@@ -167,4 +167,9 @@ class EventoController extends Controller
     {
         //
     }
+
+    public function inscripcion($id)
+    {
+
+    }
 }

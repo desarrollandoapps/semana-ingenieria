@@ -67,7 +67,7 @@
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
                             <td class="text-center">
-                                <a href=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
+                                <a href="{{ route('inscripcion', $item->id) }}"><i class="fas fa-sign-in-alt fa-2x"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -77,12 +77,12 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href=""><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
                             <td class="text-center">
-                                <a href="" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
+                                <a href="{{ route('inscripcion', $item->id) }}" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -92,12 +92,12 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href=""><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
                             <td class="text-center">
-                                <a href="" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
+                                <a href="{{ route('inscripcion', $item->id) }}" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -107,12 +107,12 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href=""><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
                             <td class="text-center">
-                                <a href="" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
+                                <a href="{{ route('inscripcion', $item->id) }}" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -125,10 +125,8 @@
                     <tr>
                         <th>Horario</th>
                         <th>Tema</th>
-                        <th>Conferencista</th>
+                        <th>Tallerista</th>
                         <th>País</th>
-                        <th>Lugar</th>
-                        <th>Enlace</th>
                         <th>Inscripción</th>
                     </tr>
                 </thead>
@@ -137,14 +135,12 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href=""><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
-                            <td>{{ $item->lugar }}</td>
-                            <td><a href="{{ $item->enlaceVirtual }}" target="_blank">{{ $item->enlaceVirtual }}</a></td>
                             <td class="text-center">
-                                <a href="" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
+                                <a href="{{ route('inscripcion', $item->id) }}" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -154,14 +150,12 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href=""><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
-                            <td>{{ $item->lugar }}</td>
-                            <td><a href="{{ $item->enlaceVirtual }}" target="_blank">{{ $item->enlaceVirtual }}</a></td>
                             <td class="text-center">
-                                <a href="" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
+                                <a href="{{ route('inscripcion', $item->id) }}" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -171,14 +165,12 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href=""><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
-                            <td>{{ $item->lugar }}</td>
-                            <td><a href="{{ $item->enlaceVirtual }}" target="_blank">{{ $item->enlaceVirtual }}</a></td>
                             <td class="text-center">
-                                <a href="" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
+                                <a href="{{ route('inscripcion', $item->id) }}" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -188,14 +180,12 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href=""><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}<a href="{{ route('verConferencista', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
-                            <td>{{ $item->lugar }}</td>
-                            <td><a href="{{ $item->enlaceVirtual }}" target="_blank">{{ $item->enlaceVirtual }}</a></td>
                             <td class="text-center">
-                                <a href="" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
+                                <a href="{{ route('inscripcion', $item->id) }}" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -208,10 +198,8 @@
                     <tr>
                         <th>Horario</th>
                         <th>Tema</th>
-                        <th>Conferencista</th>
+                        <th>Ponente</th>
                         <th>País</th>
-                        <th>Lugar</th>
-                        <th>Enlace</th>
                         <th>Inscripción</th>
                     </tr>
                 </thead>
@@ -220,12 +208,10 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href=""><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}</td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
-                            <td>{{ $item->lugar }}</td>
-                            <td><a href="{{ $item->enlaceVirtual }}" target="_blank">{{ $item->enlaceVirtual }}</a></td>
                             <td class="text-center">
                                 <a href="" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
                             </td>
@@ -237,12 +223,10 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href=""><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}</td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
-                            <td>{{ $item->lugar }}</td>
-                            <td><a href="{{ $item->enlaceVirtual }}" target="_blank">{{ $item->enlaceVirtual }}</a></td>
                             <td class="text-center">
                                 <a href="" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
                             </td>
@@ -254,12 +238,10 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href=""><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}</td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
-                            <td>{{ $item->lugar }}</td>
-                            <td><a href="{{ $item->enlaceVirtual }}" target="_blank">{{ $item->enlaceVirtual }}</a></td>
                             <td class="text-center">
                                 <a href="" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
                             </td>
@@ -271,12 +253,10 @@
                         <tr>
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
-                            <td>{{ $item->nombre }}<a href=""><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $item->nombre }}</td>
                             <td class="text-center">
                                 <span class="fi fi-{{ $item->pais }}"></span>
                             </td>
-                            <td>{{ $item->lugar }}</td>
-                            <td><a href="{{ $item->enlaceVirtual }}" target="_blank">{{ $item->enlaceVirtual }}</a></td>
                             <td class="text-center">
                                 <a href="" class=""><i class="fas fa-sign-in-alt fa-2x"></i></a>
                             </td>
@@ -286,6 +266,18 @@
             </table>
         </div>
     </div>  
+</div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast  @if(Session::get('inscrito')) show @endif" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Semana Internacional de la Ingeniería UCC</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Se ha inscrito satisfactoriamente al evento.
+        </div>
+    </div>
 </div>
 @endsection
 

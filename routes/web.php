@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\ConferencistaController;
+use App\Http\Controllers\InscripcionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,7 @@ use App\Http\Controllers\ConferencistaController;
 // })->name('welcome');
 
 Route::get('/', [EventoController::class, 'index'])->name('welcome');
-Route::get('/inscripcion/{evento}', [EventoController::class, 'inscripcion'])->name('inscripcion');
+Route::get('/inscripcion/{evento}', [InscripcionController::class, 'inscripcion'])->name('inscripcion');
+Route::post('/inscripcion', [InscripcionController::class, 'store'])->name('inscripcion.store');
+
 Route::get('/conferencista/{id}', [ConferencistaController::class, 'show'])->name('verConferencista');
