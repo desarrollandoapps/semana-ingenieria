@@ -22,7 +22,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                            <li class="me-5" id="siteIcon">
+                            <li class="me-5 d-none d-sm-block" id="siteIcon">
                                 <a class="ms-siteicon-a" href="#">
                                     <img src="{{ asset('images/logo-ucc.png') }}" alt="Logo UCC" id="logo" class="">
                                 </a>
@@ -50,7 +50,7 @@
                                 <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i></a>
                             </li>
                             @else
-                            <li class="ms-5 nav-item">
+                            <li class="ms-0 ms-md-5 nav-item">
                                 <a class="nav-link" href="{{ route('conferencista.index') }}">Gestionar</a>
                             </li>
                             <li class="nav-item">
@@ -114,7 +114,7 @@
         <div class="row text-center bg-azul-claro py-3">
             <div class="container">
                 <p>Universidad Cooperativa de Colombia - Campus Ibagué, Espinal</p>
-                <p>Otra creación de 
+                <p>Otra creación de Jose Oviedo & Andrés Arciniegas
                     <a href="http://desarrollandoapps.net" target="_blank" class="text-decoration-none link-light">
                         <img src="{{ asset('images/logo-da.svg') }}" alt="Logo desarrollandoApps" class="logo-da ms-3">
                 </a>
