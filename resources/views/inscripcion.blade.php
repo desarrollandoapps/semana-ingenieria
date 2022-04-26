@@ -91,5 +91,7 @@
             })
         })()
     </script>
+
+    {{-- TODO: Poner indicador de que está trabajando en la inscripcion --}}
 </body>
 </html>

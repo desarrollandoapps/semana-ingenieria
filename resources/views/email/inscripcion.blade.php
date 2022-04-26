@@ -16,7 +16,7 @@
             <p>El evento se llevará a cabo el día {{ $inscripcion->fecha }} en el horario {{ $inscripcion->horario }}.</p>
             <p>Podrá asistir al evento de manera presencial en {{ $inscripcion->lugar }} o de manera remota en el siguiente enlace: <a href="{{ $inscripcion->enlaceVirtual }}">{{ $inscripcion->enlaceVirtual }}</a></p>
             <div class="text-center">
-                {!! QrCode::size(200)->generate('http://desarrollandoapps.net'); !!}
+                {!! QrCode::size(200)->generate('127.0.0.1:8000/registrar-asistencia/' . '{{ $inscripcion->token }}'); !!}
             </div>
             <p>Este correo es generado automáticamente, le rogamos no responder a esta dirección.</p>
         </div>

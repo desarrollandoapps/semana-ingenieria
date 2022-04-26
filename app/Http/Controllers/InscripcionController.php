@@ -44,7 +44,14 @@ class InscripcionController extends Controller
      */
     public function store(Request $request)
     {
+        do {
+            $token = bin2hex(openssl_random_pseudo_bytes(64));
+            echo $token;
+        } while (Inscripcion::where('token', $token)->first() != null);
+
+
         $inscripcion = Inscripcion::create([
+            'token' => $token,
             'evento_id' => (int) $request->evento,
             'nombre' => $request->nombre,
             'email' => $request->email,
@@ -55,10 +62,25 @@ class InscripcionController extends Controller
 
         Mail::to($request->email)->send(new NotificacionInscripcion($inscripcion));
 
-        $inscrito = true;
-
         return redirect()->route('welcome')->with(['inscrito' => true]);
-        return view('welcome', compact('inscrito'));
+    }
+
+    public function registrarAsistencia($token)
+    {
+        $asiste = false;
+        $inscripcion = Inscripcion::where('token', $token)->first();
+
+        if($inscripcion != null && $inscripcion->asiste == 0)
+        {
+            $inscripcion->asiste = 1;
+            $inscripcion->save();
+        }
+        else if ($inscripcion != null && $inscripcion->asiste == 1) 
+        {
+            return redirect()->route('confirmacionAsistencia')->with(['asistio' => 2]);    
+        }
+
+        return redirect()->route('confirmacionAsistencia')->with(['asistio' => $asiste]);
     }
 
     /**

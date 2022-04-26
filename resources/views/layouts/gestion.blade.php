@@ -12,82 +12,42 @@
 </head>
 <body>
     <header>
-        <div class="banner" id="banner">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                            <li class="me-5 d-none d-sm-block" id="siteIcon">
-                                <a class="ms-siteicon-a" href="#">
-                                    <img src="{{ asset('images/logo-ucc.png') }}" alt="Logo UCC" id="logo" class="">
-                                </a>
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{{ route('welcome') }}">Página evento</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ route('welcome') }}">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('welcome') }}">Programación</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('welcome') }}">Cronograma</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('welcome') }}">Empresas aliadas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('welcome') }}">Universidades</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="mailto:">Contacto</a>
+                                <a class="nav-link active" aria-current="page" href="{{ route('gestion.index') }}">Home</a>
                             </li>
                             @guest
                             <li class="ms-5 nav-item">
                                 <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i></a>
                             </li>
                             @else
-                            <li class="ms-0 ms-md-5 nav-item">
-                                <a class="nav-link" href="{{ route('gestion.index') }}">Gestionar</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('conferencista.index') }}">Conferencistas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salir">
-                                    <i class="fas fa-sign-out-alt"></i>
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
+                                <a class="nav-link" href="{{ route('welcome') }}">Eventos</a>
                             </li>
                             @endguest
                         </ul>
+                        <a class="nav-link me-2" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salir">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </div>
                 </div>
             </nav>
-            <div class="fila-cuenta text-center">
-                <div class="d-inline-block me-3">
-                    <div class="cuenta" id="dias">00</div>
-                    <div class="titulo-cuenta">DÍAS</div>
-                </div>
-                <div class="d-inline-block me-3">
-                    <div class="cuenta" id="horas">00</div>
-                    <div class="titulo-cuenta">HORAS</div>
-                </div>
-                <div class="d-inline-block me-3">
-                    <div class="cuenta" id="minutos">00</div>
-                    <div class="titulo-cuenta">MINUTOS</div>
-                </div>
-                <div class="d-inline-block">
-                    <div class="cuenta" id="segundos">00</div>
-                    <div class="titulo-cuenta">SEGUNDOS</div>
-                </div>
-            </div>
-            <div class="text-center py-5">
-                <h1 class="display-4 fw-normal fw-white">VI Semana Internacional de la Ingeniería</h1>
-                <h3 class="fw-white">17 - 20 de mayo de 2022. Ibagué, Tolima, Colombia.</h3>
-            </div>
         </div>
 
     </header>

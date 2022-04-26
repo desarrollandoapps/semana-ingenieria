@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-    <a href="{{ url( 'conferencista/') }}" class="btn btn-primary" >Regresar</a>
+    {{-- <a href="{{ url( 'conferencista/') }}" class="btn btn-primary" >Regresar</a> --}}
     <br>
     <br>
 

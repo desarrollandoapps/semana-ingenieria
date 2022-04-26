@@ -15,6 +15,7 @@ class CreateInscripcionsTable extends Migration
     {
         Schema::create('inscripcions', function (Blueprint $table) {
             $table->id();
+            $table->string('token');
             $table->foreignID('evento_id')->constrained();
             $table->string('nombre');
             $table->string('email');

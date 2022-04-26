@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.gestion')
 
 @section('content')
     <div class="container">
@@ -37,7 +37,7 @@
                             <img class="img-thumbnail img-fluid" src="{{ asset('storage') . '/' . $conferencista->foto }}" width="50" alt="">
                         </td>
                         <td>{{ $conferencista->nombre}}</td>
-                        <td>{{ $conferencista->pais}}</td>
+                        <td><span class="fi fi-{{ $conferencista->pais }}"></span></td>
                         <th>
                             <a href="{{ url( '/conferencista/' . $conferencista->id ) }}" class="btn btn-primary">
                                 Más Info
