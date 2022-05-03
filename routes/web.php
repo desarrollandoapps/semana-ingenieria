@@ -38,3 +38,5 @@ Route::resource('conferencista', ConferencistaController::class);
 Route::get('gestion', function () {
     return view('gestion.index');
 })->name('gestion.index');
+
+Route::resource('evento', EventoController::class);
