@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Evento;
-use App\Models\Conferencista;
 use Illuminate\Http\Request;
-use QrCode;
 
 class EventoController extends Controller
 {
@@ -170,26 +168,8 @@ class EventoController extends Controller
         //
     }
 
-    public function enlaceCalificacion($id)
+    public function inscripcion($id)
     {
-        $ruta = "http://127.0.0.1:8000/calificar-evento/$id";
-        $evento = Evento::join('conferencistas', 'eventos.conferencista_id', 'conferencistas.id')
-                            ->where('eventos.id', $id)
-                            ->select('eventos.tema', 'conferencistas.nombre', 'conferencistas.pais', 'conferencistas.foto')
-                            ->first();
-        QrCode::generate($ruta, '../public/qrcodes/qrcode' . $id . '.svg');
-        $rutaArchivo = 'qrcodes/qrcode' . $id . '.svg';
-        return view('qr-calificacion', compact('evento', 'rutaArchivo'));
-    }
 
-    public function verCalificarEvento($evento)
-    {
-        $evento = Evento::find($evento);
-        return view('calificar-evento', compact('evento'));
-    }
-
-    public function calificarEvento(Request $request)
-    {
-        dd($request);
     }
 }

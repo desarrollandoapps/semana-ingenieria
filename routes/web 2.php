@@ -25,20 +25,5 @@ require __DIR__.'/auth.php';
 Route::get('/', [EventoController::class, 'index'])->name('welcome');
 Route::get('inscripcion/{evento}', [InscripcionController::class, 'inscripcion'])->name('inscripcion');
 Route::post('inscripcion', [InscripcionController::class, 'store'])->name('inscripcion.store');
-Route::get('registrar-asistencia/{token}', [InscripcionController::class, 'registrarAsistencia'])->name('registrarAsistencia');
-
-Route::get('confirmacion-asistencia', function () {
-    return view('confirmacion-asistencia');
-})->name('confirmacionAsistencia');
 
 Route::resource('conferencista', ConferencistaController::class);
-
-
-Route::get('gestion', function () {
-    return view('gestion.index');
-})->name('gestion.index');
-
-Route::get('informes/asistencia', [InscripcionController::class, 'exportarAsistencia'])->name('exportarAsistencia');
-Route::get('eventos/enlace-calificacion/{token}', [EventoController::class, 'enlaceCalificacion'])->name('enlaceCalificacion');
-Route::get('eventos/calificar/{evento}', [EventoController::class, 'verCalificarEvento'])->name('verCalificarEvento');
-Route::post('eventos/calificacion/', [EventoController::class, 'calificarEvento'])->name('calificarEvento');

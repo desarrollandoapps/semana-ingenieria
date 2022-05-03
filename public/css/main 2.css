@@ -121,7 +121,3 @@ nav .nav-link {
 .card {
     min-width: 50% !important;
 }
-
-.fa-star {
-    cursor: pointer !important;
-}
