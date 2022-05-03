@@ -42,3 +42,4 @@ Route::get('informes/asistencia', [InscripcionController::class, 'exportarAsiste
 Route::get('eventos/enlace-calificacion/{token}', [EventoController::class, 'enlaceCalificacion'])->name('enlaceCalificacion');
 Route::get('eventos/calificar/{evento}', [EventoController::class, 'verCalificarEvento'])->name('verCalificarEvento');
 Route::post('eventos/calificacion/', [EventoController::class, 'calificarEvento'])->name('calificarEvento');
+Route::resource('evento', EventoController::class);

@@ -65,7 +65,7 @@ class ConferencistaController extends Controller
         Conferencista::insert( $datosConferencista );
 
         //return response()->json( $datosConferencista );
-        return redirect( 'conferencista' )->with( 'mensaje', 'Conferencista agregado con éxito');
+        return redirect( 'conferencista' )->with( 'mensaje', 'Conferencista modificado con éxito');
     }
 
     /**

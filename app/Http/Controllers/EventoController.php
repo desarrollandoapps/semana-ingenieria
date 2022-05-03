@@ -14,7 +14,7 @@ class EventoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index1()
     {
         $cDia1 = Evento::join('conferencistas', 'eventos.conferencista_id', 'conferencistas.id')
                             ->orderBy('fecha', 'asc')
@@ -104,6 +104,14 @@ class EventoController extends Controller
         return view('welcome', compact('cDia1', 'cDia2', 'cDia3', 'cDia4', 'tDia1', 'tDia2', 'tDia3', 'tDia4', 'pDia1', 'pDia2', 'pDia3', 'pDia4'));
     }
 
+    public function index()
+    {
+        //
+        $datos['eventos'] = Evento::paginate(5);
+        return view('evento.index', $datos );        
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -112,6 +120,7 @@ class EventoController extends Controller
     public function create()
     {
         //
+        return view('evento.create');
     }
 
     /**
@@ -123,6 +132,31 @@ class EventoController extends Controller
     public function store(Request $request)
     {
         //
+        $campos = [
+            'dia' => 'required', 
+            'fecha' => 'required|string|max:10', 
+            'horario' => 'required|string|max:100', 
+            'tema' => 'required|string', 
+            'conferencista_id' => 'required', 
+            'lugar' => 'required|string|max:200', 
+            'enlaceVirtual' => 'required|string|max:200', 
+            'colaborador' => 'required|string|max:100', 
+            'tipoEvento' => 'required', 
+        ];
+
+        $mensajes = [
+            'required' => 'El :attribute es requerido', 
+            'fecha.required' => 'La fecha es requerida' 
+        ];
+
+        $this->validate( $request, $campos, $mensajes );
+
+        $datosEvento = request()->except( '_token' );
+
+        Evento::insert( $datosEvento );
+
+        return redirect( 'evento' )->with( 'mensaje', 'Evento agregado con éxito');
+
     }
 
     /**
@@ -131,9 +165,11 @@ class EventoController extends Controller
      * @param  \App\Models\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function show(Evento $evento)
+    public function show( $id )
     {
         //
+        $evento = Evento::findOrFail($id);
+        return view('evento.show', compact('evento'));
     }
 
     /**
@@ -142,9 +178,11 @@ class EventoController extends Controller
      * @param  \App\Models\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function edit(Evento $evento)
+    public function edit( $id )
     {
         //
+        $evento = Evento::findOrFail( $id );
+        return view('evento.edit', compact( 'evento' ));
     }
 
     /**
@@ -154,9 +192,32 @@ class EventoController extends Controller
      * @param  \App\Models\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Evento $evento)
+    public function update(Request $request, $id)
     {
         //
+        $campos = [
+            'dia' => 'required', 
+            'fecha' => 'required|string|max:10', 
+            'horario' => 'required|string|max:100', 
+            'tema' => 'required|string', 
+            'conferencista_id' => 'required', 
+            'lugar' => 'required|string|max:200', 
+            'enlaceVirtual' => 'required|string|max:200', 
+            'colaborador' => 'required|string|max:100', 
+            'tipoEvento' => 'required', 
+        ];
+
+        $mensajes = [
+            'required' => 'El :attribute es requerido', 
+            'fecha.required' => 'La fecha es requerida' 
+        ];
+
+        $this->validate( $request, $campos, $mensajes );
+
+        $datosEvento = request()->except( ['_token', '_method'] );
+
+        Evento::where( 'id', "=", $id )->update( $datosEvento );
+        return redirect('evento' )->with( 'mensaje', 'Evento modificado con éxito');
     }
 
     /**
@@ -165,9 +226,14 @@ class EventoController extends Controller
      * @param  \App\Models\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Evento $evento)
+    public function destroy( $id )
     {
         //
+        $conferencista = Evento::findOrFail( $id );
+        Evento::destroy( $id );
+
+        return redirect('evento')->with( 'mensaje', 'Evento eliminado con éxito');;
+
     }
 
     public function enlaceCalificacion($id)
