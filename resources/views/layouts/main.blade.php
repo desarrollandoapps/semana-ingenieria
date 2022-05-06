@@ -31,19 +31,16 @@
                                 <a class="nav-link active" aria-current="page" href="{{ route('welcome') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('welcome') }}">Programación</a>
+                                <a class="nav-link" href="{{ route('welcome') }}#programacion">Programación</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('welcome') }}">Cronograma</a>
+                                <a class="nav-link" href="{{ route('empresas') }}">Empresas aliadas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('welcome') }}">Empresas aliadas</a>
+                                <a class="nav-link" href="{{ route('universidades') }}">Universidades</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('welcome') }}">Universidades</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="mailto:">Contacto</a>
+                                <a class="nav-link" href="mailto:dennis.martinez@ucc.edu.co">Contacto</a>
                             </li>
                             @guest
                             <li class="ms-5 nav-item">
@@ -66,7 +63,7 @@
                     </div>
                 </div>
             </nav>
-            <div class="fila-cuenta text-center">
+            {{-- <div class="fila-cuenta text-center">
                 <div class="d-inline-block me-3">
                     <div class="cuenta" id="dias">00</div>
                     <div class="titulo-cuenta">DÍAS</div>
@@ -83,8 +80,9 @@
                     <div class="cuenta" id="segundos">00</div>
                     <div class="titulo-cuenta">SEGUNDOS</div>
                 </div>
-            </div>
+            </div> --}}
             <div class="text-center py-5">
+                <img src="{{ asset('images/logo-blanco.png') }}" alt="Logo UCC" class="img-fluid mb-3">
                 <h1 class="display-4 fw-normal fw-white">VI Semana Internacional de la Ingeniería</h1>
                 <h3 class="fw-white">17 - 20 de mayo de 2022. Ibagué, Tolima, Colombia.</h3>
             </div>

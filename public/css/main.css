@@ -55,7 +55,11 @@ nav .nav-link {
     border-radius: 0 0 10px 10px;
     height: 120px;
 }
-
+#logo-centrado {
+    background-color: #fff;
+    border-radius: 10px;
+    height: 120px;
+}
 .fw-white {
     color: #fff !important;
 }

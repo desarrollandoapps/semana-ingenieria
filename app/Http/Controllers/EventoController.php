@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Evento;
 use App\Models\Conferencista;
+use App\Models\Dia;
 use Illuminate\Http\Request;
 use QrCode;
 
@@ -100,7 +101,6 @@ class EventoController extends Controller
                             ->where('dia', 4)
                             ->select('eventos.*', 'conferencistas.nombre', 'conferencistas.pais', 'conferencistas.id as idConferencista')
                             ->get();
-
         return view('welcome', compact('cDia1', 'cDia2', 'cDia3', 'cDia4', 'tDia1', 'tDia2', 'tDia3', 'tDia4', 'pDia1', 'pDia2', 'pDia3', 'pDia4'));
     }
 
@@ -119,8 +119,9 @@ class EventoController extends Controller
      */
     public function create()
     {
-        //
-        return view('evento.create');
+        $dias = Dia::all();
+        $conferencistas = Conferencista::orderBy('nombre', 'asc')->get();
+        return view('evento.create', compact('dias', 'conferencistas'));
     }
 
     /**
@@ -131,29 +132,40 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $campos = [
-            'dia' => 'required', 
-            'fecha' => 'required|string|max:10', 
-            'horario' => 'required|string|max:100', 
-            'tema' => 'required|string', 
-            'conferencista_id' => 'required', 
-            'lugar' => 'required|string|max:200', 
-            'enlaceVirtual' => 'required|string|max:200', 
-            'colaborador' => 'required|string|max:100', 
-            'tipoEvento' => 'required', 
-        ];
+        
+        // //
+        // $campos = [
+        //     'dia' => 'required', 
+        //     'horario' => 'required|string|max:100', 
+        //     'tema' => 'required|string', 
+        //     'conferencista_id' => 'required', 
+        //     'lugar' => 'required|string|max:200', 
+        //     'enlaceVirtual' => 'required|string|max:200', 
+        //     'colaborador' => 'string|max:100', 
+        //     'tipoEvento' => 'required', 
+        // ];
 
-        $mensajes = [
-            'required' => 'El :attribute es requerido', 
-            'fecha.required' => 'La fecha es requerida' 
-        ];
+        // $mensajes = [
+        //     'required' => 'El :attribute es requerido', 
+        //     'fecha.required' => 'La fecha es requerida' 
+        // ];
 
-        $this->validate( $request, $campos, $mensajes );
+        // $this->validate( $request, $campos, $mensajes );
 
         $datosEvento = request()->except( '_token' );
-
-        Evento::insert( $datosEvento );
+        $dia = Dia::where('numero', $request->dia)->first();
+        $fecha = $dia->fecha;
+        $evento = new Evento();
+        $evento->dia = $dia->numero;
+        $evento->fecha = $fecha;
+        $evento->horario = $request->horario;
+        $evento->tema = $request->tema;
+        $evento->conferencista_id = $request->conferencista;
+        $evento->lugar = $request->lugar;
+        $evento->enlaceVirtual = $request->enlaceVirtual;
+        $evento->colaborador = $request->colaborador;
+        $evento->tipoEvento = $request->tipoEvento;
+        $evento->save();
 
         return redirect( 'evento' )->with( 'mensaje', 'Evento agregado con éxito');
 
@@ -180,9 +192,10 @@ class EventoController extends Controller
      */
     public function edit( $id )
     {
-        //
+        $dias = Dia::all();
         $evento = Evento::findOrFail( $id );
-        return view('evento.edit', compact( 'evento' ));
+        $conferencistas = Conferencista::orderBy('nombre', 'asc')->get();
+        return view('evento.edit', compact( 'evento', 'dias', 'conferencistas' ));
     }
 
     /**
@@ -195,24 +208,24 @@ class EventoController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $campos = [
-            'dia' => 'required', 
-            'fecha' => 'required|string|max:10', 
-            'horario' => 'required|string|max:100', 
-            'tema' => 'required|string', 
-            'conferencista_id' => 'required', 
-            'lugar' => 'required|string|max:200', 
-            'enlaceVirtual' => 'required|string|max:200', 
-            'colaborador' => 'required|string|max:100', 
-            'tipoEvento' => 'required', 
-        ];
+        // $campos = [
+        //     'dia' => 'required', 
+        //     'fecha' => 'required|string|max:10', 
+        //     'horario' => 'required|string|max:100', 
+        //     'tema' => 'required|string', 
+        //     'conferencista_id' => 'required', 
+        //     'lugar' => 'required|string|max:200', 
+        //     'enlaceVirtual' => 'required|string|max:200', 
+        //     'colaborador' => 'required|string|max:100', 
+        //     'tipoEvento' => 'required', 
+        // ];
 
-        $mensajes = [
-            'required' => 'El :attribute es requerido', 
-            'fecha.required' => 'La fecha es requerida' 
-        ];
+        // $mensajes = [
+        //     'required' => 'El :attribute es requerido', 
+        //     'fecha.required' => 'La fecha es requerida' 
+        // ];
 
-        $this->validate( $request, $campos, $mensajes );
+        // $this->validate( $request, $campos, $mensajes );
 
         $datosEvento = request()->except( ['_token', '_method'] );
 
@@ -238,7 +251,7 @@ class EventoController extends Controller
 
     public function enlaceCalificacion($id)
     {
-        $ruta = "http://127.0.0.1:8000/calificar-evento/$id";
+        $ruta = "calificar-evento/$id";
         $evento = Evento::join('conferencistas', 'eventos.conferencista_id', 'conferencistas.id')
                             ->where('eventos.id', $id)
                             ->select('eventos.tema', 'conferencistas.nombre', 'conferencistas.pais', 'conferencistas.foto')

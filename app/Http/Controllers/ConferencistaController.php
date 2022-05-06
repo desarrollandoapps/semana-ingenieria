@@ -41,20 +41,20 @@ class ConferencistaController extends Controller
     {
         //
 
-        $campos = [
-            'nombre' => 'required|string|max:100', 
-            'pais' => 'required|string|max:100', 
-            'correo' => 'required|email|max:100', 
-            'cv' => 'required|string', 
-            'foto' => 'required|max:10000|mimes:jpeg,png,jpg' 
-        ];
+        // $campos = [
+        //     'nombre' => 'required|string|max:100', 
+        //     'pais' => 'required|string|max:100', 
+        //     'correo' => 'required|email|max:100', 
+        //     'cv' => 'required|string', 
+        //     'foto' => 'max:10000|mimes:jpeg,png,jpg' 
+        // ];
 
-        $mensajes = [
-            'required' => 'El :attribute es requerido', 
-            'foto.required' => 'La foto es requerida' 
-        ];
+        // $mensajes = [
+        //     'required' => 'El :attribute es requerido', 
+        //     'foto.required' => 'La foto es requerida' 
+        // ];
 
-        $this->validate( $request, $campos, $mensajes );
+        // $this->validate( $request, $campos, $mensajes );
 
         $datosConferencista = request()->except( '_token' );
 

@@ -22,7 +22,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/', [EventoController::class, 'index'])->name('welcome');
+Route::get('/', [EventoController::class, 'index1'])->name('welcome');
 Route::get('inscripcion/{evento}', [InscripcionController::class, 'inscripcion'])->name('inscripcion');
 Route::post('inscripcion', [InscripcionController::class, 'store'])->name('inscripcion.store');
 Route::get('registrar-asistencia/{token}', [InscripcionController::class, 'registrarAsistencia'])->name('registrarAsistencia');
@@ -43,3 +43,14 @@ Route::get('eventos/enlace-calificacion/{token}', [EventoController::class, 'enl
 Route::get('eventos/calificar/{evento}', [EventoController::class, 'verCalificarEvento'])->name('verCalificarEvento');
 Route::post('eventos/calificacion/', [EventoController::class, 'calificarEvento'])->name('calificarEvento');
 Route::resource('evento', EventoController::class);
+
+Route::get('/empresas', function () {
+    return view('empresas');
+})->name('empresas');
+Route::get('/universidades', function () {
+    return view('universidades');
+})->name('universidades');
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});

@@ -59,7 +59,7 @@
                 </thead>
                 <tbody class="visually-hidden" id="cUno">
                     @foreach ($cDia1 as $item)
-                        <tr>
+                        <tr class="@if($item->programa == "Sistemas") bg-light @endif">
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
                             <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
@@ -74,7 +74,7 @@
                 </tbody>
                 <tbody class="visually-hidden" id="cDos">
                     @foreach ($cDia2 as $item)
-                        <tr>
+                        <tr class="@if($item->programa == "Sistemas") bg-light @endif">
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
                             <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
@@ -89,7 +89,7 @@
                 </tbody>
                 <tbody class="visually-hidden" id="cTres">
                     @foreach ($cDia3 as $item)
-                        <tr>
+                        <tr class="@if($item->programa == "Sistemas") bg-light @endif">
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
                             <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
@@ -104,7 +104,7 @@
                 </tbody>
                 <tbody class="visually-hidden" id="cCuatro">
                     @foreach ($cDia4 as $item)
-                        <tr>
+                        <tr class="@if($item->programa == "Sistemas") bg-light @endif">
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
                             <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
@@ -132,7 +132,7 @@
                 </thead>
                 <tbody class="visually-hidden" id="tUno">
                     @foreach ($tDia1 as $item)
-                        <tr>
+                        <tr class="@if($item->programa == "Sistemas") bg-light @endif">
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
                             <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
@@ -147,7 +147,7 @@
                 </tbody>
                 <tbody class="visually-hidden" id="tDos">
                     @foreach ($tDia2 as $item)
-                        <tr>
+                        <tr class="@if($item->programa == "Sistemas") bg-light @endif">
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
                             <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
@@ -162,7 +162,7 @@
                 </tbody>
                 <tbody class="visually-hidden" id="tTres">
                     @foreach ($tDia3 as $item)
-                        <tr>
+                        <tr class="@if($item->programa == "Sistemas") bg-light @endif">
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
                             <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
@@ -177,7 +177,7 @@
                 </tbody>
                 <tbody class="visually-hidden" id="tCuatro">
                     @foreach ($tDia4 as $item)
-                        <tr>
+                        <tr class="@if($item->programa == "Sistemas") bg-light @endif">
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
                             <td>{{ $item->nombre }}<a href="{{ route('conferencista.show', $item->idConferencista) }}" class="ms-3"><i class="fas fa-eye"></i></a></td>
@@ -203,9 +203,9 @@
                         <th>Inscripción</th>
                     </tr>
                 </thead>
-                <tbody class="visually-hidden" id="tUno">
+                <tbody class="visually-hidden" id="pUno">
                     @foreach ($pDia1 as $item)
-                        <tr>
+                        <tr class="@if($item->programa == "Sistemas") bg-light @endif">
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
                             <td>{{ $item->nombre }}</td>
@@ -218,9 +218,9 @@
                         </tr>
                     @endforeach
                 </tbody>
-                <tbody class="visually-hidden" id="tDos">
+                <tbody class="visually-hidden" id="pDos">
                     @foreach ($pDia2 as $item)
-                        <tr>
+                        <tr class="@if($item->programa == "Sistemas") bg-light @endif">
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
                             <td>{{ $item->nombre }}</td>
@@ -233,9 +233,9 @@
                         </tr>
                     @endforeach
                 </tbody>
-                <tbody class="visually-hidden" id="tTres">
+                <tbody class="visually-hidden" id="pTres">
                     @foreach ($pDia3 as $item)
-                        <tr>
+                        <tr class="@if($item->programa == "Sistemas") bg-light @endif">
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
                             <td>{{ $item->nombre }}</td>
@@ -248,9 +248,9 @@
                         </tr>
                     @endforeach
                 </tbody>
-                <tbody class="visually-hidden" id="tCuatro">
+                <tbody class="visually-hidden" id="pCuatro">
                     @foreach ($pDia4 as $item)
-                        <tr>
+                        <tr class="@if($item->programa == "Sistemas") bg-light @endif">
                             <td>{{ $item->horario }}</td>
                             <td>{{ $item->tema }}</td>
                             <td>{{ $item->nombre }}</td>

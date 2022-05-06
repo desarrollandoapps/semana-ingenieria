@@ -22,7 +22,6 @@
         <table class="table table-light">
             <thead class="thead-light">
                 <tr>
-                    <th>#</th>
                     <th>Fecha</th>
                     <th>Horario</th>
                     <th>Tema</th>
@@ -32,7 +31,6 @@
             <tbody>
                 @foreach ($eventos as $evento )
                     <tr>
-                        <td>{{ $evento->id}}</td>
                         <td>{{ $evento->fecha }}</td>
                         <td>{{ $evento->horario}}</td>
                         <td>{{ $evento->tema}}</td>
