@@ -34,7 +34,7 @@
                                 <a class="nav-link" href="{{ route('welcome') }}#programacion">Programación</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('empresas') }}">Empresas aliadas</a>
+                                <a class="nav-link" href="{{ route('empresas') }}">Aliados</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('universidades') }}">Universidades</a>

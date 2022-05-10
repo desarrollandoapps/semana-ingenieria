@@ -2,15 +2,14 @@
 
 @section('content')
 <div class="content">
-    <h2 class="py-5 fw-titulo-1">Empresas Aliadas</h2>
-    <div class="row g-4">
+    <h2 class="py-5 fw-titulo-1">Aliados</h2>
+    <div class="row g-4 pb-3">
         <div class="col-sm-4">
             <div class="card">
                 <img src="{{ asset('images/empresas/empresa1.png') }}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">ITMakers</h5>
-                    <p class="card-text">Gabriel Vargas</p>
-                    <a href="mailto:gabriel.vargas@itmakers.com.co" class="btn btn-primary">gabriel.vargas@itmakers.com.co</a>
+                    <a href="https://www.itmakers.com.co" target="_blank" class="btn btn-primary">Ir al sitio</a>
                 </div>
             </div>
         </div>
@@ -19,8 +18,7 @@
                 <img src="{{ asset('images/empresas/empresa2.jpg') }}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Consultores Tecnológicos</h5>
-                    <p class="card-text">Alvaro Henao</p>
-                    <a href="mailto:ahenao@consultorestecnologicos.net" class="btn btn-primary">ahenao@consultorestecnologicos.net</a>
+                    <a href="https://consultorestecnologicos.com.co" target="_blank" class="btn btn-primary">Ir al sitio</a>
                 </div>
             </div>
         </div>
@@ -29,9 +27,7 @@
                 <img src="{{ asset('images/empresas/empresa3.png') }}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Lazarosoff</h5>
-                    <p class="card-text">Lázaro Jaramillo - Gina Jaramillo</p>
-                    <a href="mailto:gerencia@lazarosoftware.com" class="btn btn-primary mb-3">gerencia@lazarosoftware.com</a>
-                    {{-- <a href="mailto:administracion@lazarosoftware.com" class="btn btn-primary">administracion@lazarosoftware.com</a> --}}
+                    <a href="https://www.lazarosoftware.com/" target="_blank" class="btn btn-primary mb-3">Ir al sitio</a>
                 </div>
             </div>
         </div>
@@ -40,8 +36,7 @@
                 <img src="{{ asset('images/empresas/empresa4.png') }}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">SysCafé</h5>
-                    <p class="card-text">Hernán Dario Trujillo</p>
-                    <a href="mailto:hernandario@syscafe.com.co" class="btn btn-primary">hernandario@syscafe.com.co</a>
+                    <a href="https://syscafe.com/" target="_blank" class="btn btn-primary">Ir al sitio</a>
                 </div>
             </div>
         </div>
@@ -50,8 +45,7 @@
                 <img src="{{ asset('images/empresas/empresa5.png') }}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">CloudAPPi</h5>
-                    <p class="card-text">Ernesto Correa</p>
-                    <a href="mailto: ernesto.correa@cloudappi.net" class="btn btn-primary">ernesto.correa@cloudappi.net</a>
+                    <a href="https://cloudappi.net/" target="_blank" class="btn btn-primary">Ir al sitio</a>
                 </div>
             </div>
         </div>
@@ -60,8 +54,7 @@
                 <img src="{{ asset('images/empresas/empresa6.png') }}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">SOAINT</h5>
-                    <p class="card-text">Edwin Rozo - Nury Penagos</p>
-                    <a href="mailto: erozo@soaint.com" class="btn btn-primary">erozo@soaint.com</a>
+                    <a href="https://soaint.com/" target="_blank"class="btn btn-primary">Ir al sitio</a>
                 </div>
             </div>
         </div>
@@ -70,8 +63,7 @@
                 <img src="{{ asset('images/empresas/empresa7.png') }}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Pixeling</h5>
-                    <p class="card-text">Diego Valencia</p>
-                    <a href="mailto: diego.pixeling@gmail.com" class="btn btn-primary">diego.pixeling@gmail.com</a>
+                    <a href="https://pixeling.co/es/" class="btn btn-primary">Ir al sitio</a>
                 </div>
             </div>
         </div>
@@ -80,8 +72,7 @@
                 <img src="{{ asset('images/empresas/empresa8.jpg') }}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Manawa</h5>
-                    <p class="card-text">Javier Lozano</p>
-                    <a href="mailto: javier@manawac.co.uk" class="btn btn-primary">javier@manawac.co.uk</a>
+                    <a href="http://manawac.com/" class="btn btn-primary">Ir al sitio</a>
                 </div>
             </div>
         </div>
@@ -90,8 +81,16 @@
                 <img src="{{ asset('images/empresas/empresa9.png') }}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Indra</h5>
-                    {{-- <p class="card-text"></p> --}}
-                    {{-- <a href="mailto: diego.pixeling@gmail.com" class="btn btn-primary">diego.pixeling@gmail.com</a> --}}
+                    <a href="https://www.indracompany.com/" class="btn btn-primary">Ir al sitio</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <img src="{{ asset('images/empresas/empresa10.png') }}" class="card-img-top" alt="Logo">
+                <div class="card-body">
+                    <h5 class="card-title">Tolintelligence</h5>
+                    <a href="http://tolintelligence.com/" class="btn btn-primary">Ir al sitio</a>
                 </div>
             </div>
         </div>
