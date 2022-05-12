@@ -132,7 +132,6 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        
         // //
         // $campos = [
         //     'dia' => 'required', 
@@ -160,7 +159,7 @@ class EventoController extends Controller
         $evento->fecha = $fecha;
         $evento->horario = $request->horario;
         $evento->tema = $request->tema;
-        $evento->conferencista_id = $request->conferencista;
+        $evento->conferencista_id = $request->conferencista_id;
         $evento->lugar = $request->lugar;
         $evento->enlaceVirtual = $request->enlaceVirtual;
         $evento->colaborador = $request->colaborador;

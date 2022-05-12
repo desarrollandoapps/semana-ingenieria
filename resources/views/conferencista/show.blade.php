@@ -16,7 +16,11 @@
             </div>
         </div>
     </div>
-    <a href="{{ url( 'conferencista/') }}" class="btn btn-primary" >Regresar</a> 
+    @auth
+        <a href="{{ url( 'conferencista/') }}" class="btn btn-primary" >Regresar</a> 
+    @else
+        <a href="{{ route('welcome') }}" class="btn btn-primary" >Regresar</a> 
+    @endauth
     <br>
     <br>
 

@@ -7,9 +7,10 @@ use App\Models\Evento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NotificacionInscripcion;
-use DateTime;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\AsistenciaExport;
+use DateTime;
+use QrCode;
 
 class InscripcionController extends Controller
 {
@@ -49,11 +50,10 @@ class InscripcionController extends Controller
     {
         do {
             $token = bin2hex(openssl_random_pseudo_bytes(64));
-            echo $token;
         } while (Inscripcion::where('token', $token)->first() != null);
 
 
-        $inscripcion = Inscripcion::create([
+        $ins = Inscripcion::create([
             'token' => $token,
             'evento_id' => (int) $request->evento,
             'nombre' => $request->nombre,
@@ -63,9 +63,17 @@ class InscripcionController extends Controller
             'nivelFormacion' => $request->nivelFormacion
         ]);
 
-        Mail::to($request->email)->send(new NotificacionInscripcion($inscripcion));
+        // Mail::to($request->email)->send(new NotificacionInscripcion($inscripcion));
+        
+        QrCode::generate("http://semanaingenieriaucc.desarrollandoapps.net/registrar-asistencia/" . $token, '../public/qrcodes/' . $token . '.svg');
 
-        return redirect()->route('welcome')->with(['inscrito' => true]);
+        $inscripcion = Inscripcion::join('eventos', 'inscripcions.evento_id', 'eventos.id')
+                                        ->where('inscripcions.id', $ins->id)
+                                        ->select('inscripcions.nombre', 'inscripcions.token', 'eventos.*')
+                                        ->first();
+        $rutaArchivo = 'qrcodes/' . $token . '.svg';
+        return view('email.inscripcion', compact('rutaArchivo', 'inscripcion'));
+        // return redirect()->route('welcome')->with(['inscrito' => true]);
     }
 
     public function registrarAsistencia($token)

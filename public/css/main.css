@@ -131,5 +131,26 @@ nav .nav-link {
 }
 
 .bg-blue {
-    background-color: rgb(220, 220, 255);
+    background-color: #4473C5;
+    color: white !important;
+}
+
+.bg-yellow {
+    background-color:#FED967;
+}
+
+.bg-blue a {
+    color: white !important;
+}
+
+#sistemas {
+    background-color: #4473C5;
+}
+#civil {
+    background-color: #FED967;
+}
+
+#logo-blanco {
+    max-width: 400px;
+    filter: drop-shadow(-2px 2px 15px rgba(255, 255, 255, 0.7));
 }

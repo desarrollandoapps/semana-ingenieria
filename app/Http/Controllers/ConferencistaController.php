@@ -57,7 +57,6 @@ class ConferencistaController extends Controller
         // $this->validate( $request, $campos, $mensajes );
 
         $datosConferencista = request()->except( '_token' );
-
         if( $request->hasFile('foto') ) {
             $datosConferencista['foto'] = $request->file('foto')->store( 'uploads', 'public' );
         }
@@ -125,7 +124,6 @@ class ConferencistaController extends Controller
         }
 
         $datosConferencista = request()->except( ['_token', '_method'] );
-
         if( $request->hasFile('foto') ) {
                 $conferencista = Conferencista::findOrFail( $id );
                 Storage::delete( 'public/' . $conferencista->foto );

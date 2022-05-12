@@ -81,9 +81,12 @@
                     <div class="titulo-cuenta">SEGUNDOS</div>
                 </div>
             </div> --}}
+            <div class="text-center mt-3">
+                <img src="{{ asset('images/logo-evento.png') }}" alt="Logo UCC" class="mb-3" id="logo-blanco">
+            </div>
             <div class="text-center py-5">
-                <img src="{{ asset('images/logo-blanco.png') }}" alt="Logo UCC" class="img-fluid mb-3">
-                <h1 class="display-4 fw-normal fw-white">VI Semana Internacional de la Ingeniería</h1>
+                {{-- <img src="{{ asset('images/logo-blanco.png') }}" alt="Logo UCC" class="img-fluid mb-3"> --}}
+                {{-- <h1 class="display-4 fw-normal fw-white">VI Semana Internacional de la Ingeniería</h1> --}}
                 <h3 class="fw-white">17 - 20 de mayo de 2022. Ibagué, Tolima, Colombia.</h3>
             </div>
         </div>

@@ -44,6 +44,10 @@ Route::get('eventos/calificar/{evento}', [EventoController::class, 'verCalificar
 Route::post('eventos/calificacion/', [EventoController::class, 'calificarEvento'])->name('calificarEvento');
 Route::resource('evento', EventoController::class);
 
+Route::get('inscripcion/qr/{token}', function() {
+    return view('email.inscripcion');
+})->name('inscripcion.token');
+
 Route::get('/empresas', function () {
     return view('empresas');
 })->name('empresas');
